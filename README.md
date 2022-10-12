@@ -1,16 +1,9 @@
 # 03 JavaScript: Password Generator
 
-## Your Task
+## Description
+The goal of this project is to be able to generate a random 8-128 character length password consisting of letters/numbers/special characters. 
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
-
-## User Story
-
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+This project will use basic HTML/CSS/JS to acomplish these tasks. The code uses window prompts to confirm basic criteria for the password before being able to hit the "generate password" button.
 
 ## Acceptance Criteria
 
@@ -18,17 +11,25 @@ SO THAT I can create a strong password that provides greater security
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
 THEN I am presented with a series of prompts for password criteria
+
 WHEN prompted for password criteria
 THEN I select which criteria to include in the password
+
 WHEN prompted for the length of the password
 THEN I choose a length of at least 8 characters and no more than 128 characters
+
 WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+THEN I confirm whether or not to include 
+lowercase, uppercase, numeric, and/or special characters
+
 WHEN I answer each prompt
 THEN my input should be validated and at least one character type should be selected
+
 WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
+
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
-
+## Screenshot
+![image](/assets/images/Screen%20Shot%202022-10-12%20at%202.18.04%20PM.png)
