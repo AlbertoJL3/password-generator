@@ -1,76 +1,71 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-var passwordLength = window.prompt("Please choose a password length (8-128 characters): ");
-
-// Need a variable to store the user's choice for whether to use each character set
-var useUpper = window.confirm("Would you like to use Upper Case Characters? (yes/no)");
-console.log(useUpper);
-var useLower = window.confirm("Would you like to use Lower Case Characters? (yes/no)");
-var useNumbers = window.confirm("Would you like to use numbers? (yes/no)");
-var useCharacters = window.confirm("Would you like to use Special Characters? (yes/no)");
-
-if (+passwordLength > 128) {
-  alert("Your password is too long!");
-}
-else if (+passwordLength < 8) {
-  alert("Your password is too short!")
-}
-
 var UppercaseVariables = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 var LowercaseVariables = ["abcdefghijklmnopqrstuvwxyz"];
 var NumberVariables = [1234567890];
 var SpecialCharacters = ["!@#$%^&*()_+"];
 
 
+// Write password to the #password input
 
-
-if (useUpper == undefined && useLower == undefined && useNumber == undefined && useCharacters == undefined) {
-  window.alert("Invalid combination! Password filters empty!")
+function writePassword() {
+  var passwordLength = window.prompt("Please choose a password length (8-128 characters): ");
+  var password = generatePassword(passwordLength);
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+  if (useUpper == undefined && useLower == undefined && useNumber == undefined && useCharacters == undefined) {
+    window.alert("Invalid combination! Password filters empty!")
+  }
 }
 
-// declare all characters
-var characters = '';
-if (useUpper === true) {
-  var characters = characters + UppercaseVariables;
-}
-else {
-  var characters = '';
-}
-if (useLower === true) {
-  var characters = characters + LowercaseVariables;
-}
-if (useNumbers === true) {
-  var characters = characters + NumberVariables;
-}
-if (useCharacters === true) {
-  var characters = characters + SpecialCharacters;
-}
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 
+function generatePassword(passwordLength) {
 
-function generatePassword(length) {
+  var useUpper = window.confirm("Would you like to use Upper Case Characters? (yes/no)");
+  var useLower = window.confirm("Would you like to use Lower Case Characters? (yes/no)");
+  var useNumbers = window.confirm("Would you like to use numbers? (yes/no)");
+  var useCharacters = window.confirm("Would you like to use Special Characters? (yes/no)");
   let result = '';
+
+  var characters = '';
   var charactersLength = characters.length;
+
+  if (useUpper === true) {
+    var characters = characters + UppercaseVariables;
+  }
+  else {
+    var characters = '';
+  }
+  if (useLower === true) {
+    var characters = characters + LowercaseVariables;
+  }
+  if (useNumbers === true) {
+    var characters = characters + NumberVariables;
+  }
+  if (useCharacters === true) {
+    var characters = characters + SpecialCharacters;
+  }
+
+  
+
   for (let i = 0; i < passwordLength; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    var charactersLength = characters.length + i;
   }
-  return result;
+
+  if (+passwordLength > 128) {
+    alert("Your password is too long!");
+  }
+  else if (+passwordLength < 8) {
+    alert("Your password is too short!")
+  }
+  return result; 
 }
-
-var password = generatePassword(+passwordLength);
-
+console.log(password);
 
 // try adding button functionality
 // onOff = true;
@@ -84,4 +79,3 @@ var password = generatePassword(+passwordLength);
 //     onOff = false;
 //   }
 // }
-console.log(password); 
